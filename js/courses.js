@@ -32,11 +32,11 @@ const viewCourses=(courses)=>{
 
 
             <div class="p-4">
-                <h5 class="fw-bold">${course?.title.slice(0,24)}</h5>
-                <p class="m-0" style="font-size:18px;line-height:28px">${course?.description.slice(0,60)} <a href="" class="link-offset-2 link-underline link-underline-opacity-0">...<small>Read More<small></a></p>
-                <p class="my-1" style="font-size:18px;line-height:28px">Price: ${course?.price}$</p>
-                <p class="m-0" style="font-size:18px;line-height:28px">Course Duration: ${course?.course_duration}</p>
-                <p class="my-1" style="font-size:18px;line-height:28px">Department: ${course?.department}</p>
+                <p class="fw-bold" style="font-size:16px">${course?.title.slice(0,35)}</p>
+                <p class="m-0">${course?.description.slice(0,60)} <a href="" class="link-offset-2 link-underline link-underline-opacity-0">...<small>Read More<small></a></p>
+                <p class="my-1">Price: ${course?.price}$</p>
+                <p class="m-0">Course Duration: ${course?.course_duration}</p>
+                <p class="my-1">Department: ${course?.department}</p>
                 <a class="btn btn-warning shadow card_btn" href="detailsView.html?id=${course?.id}">Details</a>
             </div>
         </div>
