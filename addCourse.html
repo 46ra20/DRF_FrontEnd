@@ -38,8 +38,10 @@
       <div class="mb-3">
         <label for="course_image" class="form-label">Image</label>
         <input
-          type="url"
+          type="file"
           class="form-control"
+          accept="image/*"
+          onchange="handleImageUpload(event)"
           name=""
           id="course_image"
           aria-describedby="helpId"

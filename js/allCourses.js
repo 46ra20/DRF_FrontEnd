@@ -46,7 +46,7 @@ const viewCourses=(courses)=>{
 
             
             <div class="p-4">
-                <p class="fw-bold m-0" style="font-size:16px">${course?.title.slice(0,35)}</p>
+                <p class="fw-bold m-0" style="font-size:16px">${course?.title.slice(0,40)}</p>
                 <p class="m-0">${course?.description.slice(0,60)} <a href="" class="link-offset-2 link-underline link-underline-opacity-0">...</a></p>
                 <p class="my-1">Price: ${course?.price}$</p>
                 <p class="m-0">Course Duration: ${course?.course_duration} ${course.course_duration>1?"Hours":"Hour"}</p>

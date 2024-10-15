@@ -38,6 +38,24 @@ const handleLogin = (e)=>{
         })
 }
 
+image_url = ''
+const handleImageUpload=(event)=>{
+    console.log(event.target.files[0])
+    const image = new FormData()
+    image.append("image",event.target.files[0])
+    fetch("https://api.imgbb.com/1/upload?key=d2482430033f7bfb9ae882d79af05191",{
+        method:'POST',
+        // headers:{"content-type":"multipart/form-data"},
+        body:image
+    })
+    .then(r=>r.json())
+    .then(d=>{
+        console.log(d)
+        image_url=d.display_url
+    }
+    )
+}
+
 
 const handleRegistration=(e)=>{
     e.preventDefault()
@@ -50,7 +68,7 @@ const handleRegistration=(e)=>{
     const password=get_value('password')
     const con_password = get_value('con_password')
 
-    const profile_img=get_value('profile_img')
+    const profile_img=image_url
     const image = profile_img
     const formatData = new FormData()
 

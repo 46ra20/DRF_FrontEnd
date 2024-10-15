@@ -114,12 +114,14 @@
             <div class="mb-3">
                 <label for="profile_img" class="form-label">Choose an Image</label>
                 <input
-                    type="url"
+                    type="file"
+                    accept="image/*"
                     class="form-control"
                     name=""
                     id="profile_img"
                     placeholder="please provide an image link"
                     aria-describedby="fileHelpId"
+                    onchange="handleImageUpload(event)"
                     required
                 />
             </div>

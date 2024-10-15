@@ -1,5 +1,22 @@
 const loading_spin=document.getElementById('loading_spin')
 
+image_url = ''
+const handleImageUpload=(event)=>{
+    console.log(event.target.files[0])
+    const image = new FormData()
+    image.append("image",event.target.files[0])
+    fetch("https://api.imgbb.com/1/upload?key=d2482430033f7bfb9ae882d79af05191",{
+        method:'POST',
+        // headers:{"content-type":"multipart/form-data"},
+        body:image
+    })
+    .then(r=>r.json())
+    .then(d=>{
+        console.log(d)
+        image_url=d.data.display_url
+        }
+    )
+}
 
 const handleAddpost=(e)=>{
     e.preventDefault()
@@ -14,9 +31,9 @@ const handleAddpost=(e)=>{
     const prerequisites = get_value('prerequisites')
     const select_department = get_value('select_department')
 
-    const profile_img=get_value('course_image')
-    const image = profile_img
-    const user = localStorage.getItem('user_id')
+    
+    const image = image_url
+    const user = parseInt(localStorage.getItem('user_id'))
 
     const formatData = new FormData()
 
@@ -32,6 +49,7 @@ const handleAddpost=(e)=>{
     formatData.append('department',select_department)
     formatData.append('user',user)
     
+    console.log(formatData)
 
     fetch(url+`course/authentic/${user}/`,{
         method:'POST',
@@ -44,7 +62,7 @@ const handleAddpost=(e)=>{
     .then(r=>r.json())
     .then(d=>{
         console.log(d)
-        window.location.href='mycorse.html'
+        // window.location.href='mycorse.html'
     })
     .catch(error=>{
         loading_spin.classList.replace('d-inline-block','d-none')

@@ -1,9 +1,11 @@
 const loadMyCourse = () => {
+    document.getElementById('details_spin').classList.replace('d-none','d-flex')
     const user = localStorage.getItem('user_id')
     fetch(url+`course/authentic/${user}/`)
         .then(r => r.json())
         .then(d => {
             displayMyCourses(d)
+            document.getElementById('details_spin').classList.replace('d-flex','d-none')
         })
         .catch(err => console.log(err))
 }
@@ -30,23 +32,27 @@ const displayMyCourses = (courses) => {
 }
 
 const hangleDelete=(id)=>{
+    const del = window.confirm('Are you sure?')
     console.log(id)
-    const user = localStorage.getItem('user_id')
+    if(del==true){
+        const user = localStorage.getItem('user_id')
 
-    fetch(url+`course/details/${user}/${id}/`,{
-        method:'DELETE'
-    })
-    .then(r=>r.json())
-    .then(d=>{
-        // window.location.reload()
-        console.log(d)
-        loadMyCourse()
-    })
-    .catch(err=>{
-        console.log(err)
-        // window.location.reload()
-        loadMyCourse()
-    })
+        fetch(url+`course/details/${user}/${id}/`,{
+            method:'DELETE'
+        })
+        .then(r=>r.json())
+        .then(d=>{
+            // window.location.reload()
+            console.log(d)
+            loadMyCourse()
+        })
+        .catch(err=>{
+            console.log(err)
+            // window.location.reload()
+            loadMyCourse()
+        })
+    }
+    
 }
 
 const hangleEdit=(id)=>{

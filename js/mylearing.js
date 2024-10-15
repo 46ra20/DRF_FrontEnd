@@ -30,6 +30,9 @@ const displayMyCourses = (courses) => {
 }
 
 const hangleDelete =(id)=>{
+    const unenroll = window.confirm('Are you sure to unenroll from this course?')
+    if(unenroll===true){
+
     fetch(url+`course/enrol_unenroled/${id}/`,{
         method:'DELETE'
     })
@@ -41,6 +44,7 @@ const hangleDelete =(id)=>{
         }
     })
     .catch(err=>console.log(err))
+    }
 }
 
 loadMyEnroledCourse()
