@@ -153,7 +153,9 @@ const handleLogout = ()=>{
 
 }
 
-url='https://drf-online-school-jsrn-getm.vercel.app/'
+// url='https://drf-online-school-jsrn-getm.vercel.app/'
+url = 'http://127.0.0.1:8000/'
+
 
 footerLoader()
 navBar()

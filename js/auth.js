@@ -51,7 +51,7 @@ const handleImageUpload=(event)=>{
     .then(r=>r.json())
     .then(d=>{
         console.log(d)
-        image_url=d.display_url
+        image_url=d.data.display_url
     }
     )
 }
