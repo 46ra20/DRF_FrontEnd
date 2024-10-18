@@ -9,7 +9,7 @@
   <li>Vercel</li>
   <li>Supabase</li>
 </ol>
-
+## Frontend Technologies-> 
 <ol>
   <li>Java Script</li>
   <li>HTML5</li>
