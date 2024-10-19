@@ -157,5 +157,25 @@ url='https://drf-online-school-jsrn-getm.vercel.app/'
 // url = 'http://127.0.0.1:8000/'
 
 
+
+
+
+let type = true;
+const handlePasswordShow = (event,id) =>{
+  const pass = document.getElementById(id);
+  const eye = event.target;
+  type=!type;
+  
+  if(type){
+    pass.type='password';
+    eye.src='image/eye-fill.svg';
+  }
+  else{
+    pass.type='text';
+    eye.src='image/eye-slash-fill.svg';
+  }
+}
+
+
 footerLoader()
 navBar()
