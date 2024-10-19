@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Online_School_vercel"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "DRF_ForntEnd"
+	}
+}
