@@ -138,6 +138,30 @@ const showStar=(star)=>{
     return s
 }
 
+const showCategory=()=>{
+    department_list = ['<i class="fa-solid fa-computer"></i>','<i class="fa-regular fa-lightbulb"></i>','<i class="fa-solid fa-person-military-to-person"></i>','<i class="fa-solid fa-gears"></i>','<i class="fa-solid fa-sitemap"></i>']
+    bg_color = ['#ADD8E6','#98FF98','#E6E6FA','#FFFACD','#FFB6C1']
+    border_color = ['#00008B','#006400','#4B0082','#8B8000','#8B0000']
+    fetch(url+'course/category/')
+    .then(r=>r.json())
+    .then(d=>{
+        console.log(d)
+        const category_container = document.getElementById('show_all_department')
+        let i=0;
+        d.forEach(element => {
+            const div = document.createElement('div')
+            div.classList.add('rounded','p-3','text-center')
+            div.style=`height:120px;width:150px;background-color:${bg_color[i]};border:1px solid ${border_color[i]}`
+            div.innerHTML=`
+                <p class="h1">${department_list[i++]}</p>
+                <p class="h5 fw-bold font-white">${element.category}</p>
+            `
+            category_container.append(div)
+        });
+    })
+    .catch(err=>console.log(err))
+}
 
+showCategory()
 handleShowReview()
 loadCourses()
