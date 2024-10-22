@@ -45,6 +45,36 @@ const viewCourses=(courses)=>{
     });
 }
 
+const viewFavoriteCourse=()=>{
+    const favorite_course = document.getElementById('favorite_course')
+    fetch(url+'course/favorite_course/')
+    .then(r=>r.json())
+    .then(data=>{
+        console.log(data)
+        data.forEach(element => {
+            const div = document.createElement('div')
+            div.classList.add('col-12','col-lg-3')
+            div.style="cursor:pointer"
+            div.addEventListener(onclick,()=>{
+                console.log('hello',element.id)
+                window.location.href=`detailsView.html?id=${element.id}`
+            })
+
+            div.innerHTML=`
+                <div class="m-3 p-2 border rounded shadow custom_effect">
+                    <img src='${element.image}' class="img-fluid rounded w-100 d-block" style="height:150px"/>
+                    <h5 class="mt-3">${element.title}</h5>
+                    <div class="d-flex justify-content-between my-2 fw-semibold">
+                        <p class="m-0">${showStar(parseInt(element.ratting/2))} (${parseInt(element.ratting/2)})</p>
+                        <p class="m-0">${element.price} $</p>
+                    </div>
+                </div>
+            `
+            favorite_course.append(div)
+        });
+    })
+}
+
 const handleBlogView=(courses)=>{
     const blog_container = document.getElementById('blog_container')
     courses.forEach(course => {
@@ -103,6 +133,13 @@ const handleShowReview= ()=>{
 const showReviews = (reviews)=>{
     const review_container = document.getElementById('review_container')
     if(reviews.length >0){
+        const blank_div = document.createElement('div')
+        blank_div.innerHTML=`
+            <div style="height:220px;width:180px" class="d-md-none">
+                    
+            </div>
+        `
+        review_container.append(blank_div)
         reviews.forEach(element => {
             const div = document.createElement('div')
             // div.classList.add('col-lg-1','col-md-2','col-sm-3','mb-2')
@@ -150,7 +187,7 @@ const showCategory=()=>{
         let i=0;
         d.forEach(element => {
             const div = document.createElement('div')
-            div.classList.add('rounded','p-3','text-center')
+            div.classList.add('rounded','p-3','text-center','shadow','mb-3','d-block')
             div.style=`height:120px;width:150px;background-color:${bg_color[i]};border:1px solid ${border_color[i]}`
             div.innerHTML=`
                 <p class="h1">${department_list[i++]}</p>
@@ -162,6 +199,8 @@ const showCategory=()=>{
     .catch(err=>console.log(err))
 }
 
+
+loadCourses()
 showCategory()
 handleShowReview()
-loadCourses()
+viewFavoriteCourse()
