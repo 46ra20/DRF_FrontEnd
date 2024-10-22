@@ -17,7 +17,7 @@ const navBar =()=>{
     navContainer.innerHTML=''
 
     navContainer.innerHTML=`
-    <nav class="navbar navbar-expand-lg" style="background-color: #0000001c;">
+    <nav class="navbar navbar-expand-lg" style="background-color: #FFFFFF;">
       <div class="container-fluid col-11 mx-auto text-white" style="color: white;">
         <a class="navbar-brand fw-bolder " href="index.html?reload=0">JSRN</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,12 @@ const navBar =()=>{
             </li>
             <li class="nav-item">
               <a class="nav-link active  menu_item fw-bold" aria-current="allcourses.html" href="allcourses.html">All Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active  menu_item fw-bold" aria-current="allcourses.html" href="allcourses.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active  menu_item fw-bold" aria-current="contact_us.html" href="allcourses.html">Contact Us</a>
             </li>
             ${
               user?.account_type=='TEACHER'?
