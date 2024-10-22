@@ -35,7 +35,7 @@ const navBar =()=>{
               <a class="nav-link active  menu_item fw-bold" aria-current="allcourses.html" href="allcourses.html">Blogs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active  menu_item fw-bold" aria-current="contact_us.html" href="allcourses.html">Contact Us</a>
+              <a class="nav-link active  menu_item fw-bold" aria-current="contact_us.html" href="contact_us.html">Contact Us</a>
             </li>
             ${
               user?.account_type=='TEACHER'?
