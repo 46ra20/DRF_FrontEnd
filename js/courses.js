@@ -1,12 +1,9 @@
 const loadCourses = () =>{
-    document.getElementById('course_loading_spin').classList.replace('d-none','d-flex');
-    document.getElementById('blogs_loading_spin').classList.replace('d-none','d-flex');
+    document.getElementById('course_loading_spin').classList.replace('d-none','d-flex')
     fetch(url+'course/public_all/home/')
     .then(r=>r.json())
     .then(data=>{
         // console.log(data)
-        document.getElementById('course_loading_spin').classList.replace('d-flex','d-none',);
-        document.getElementById('blogs_loading_spin').classList.replace('d-flex','d-none',);
         viewCourses(data)
         handleBlogView(data)
     })
@@ -21,7 +18,7 @@ const viewCourses=(courses)=>{
         div.classList.add('col-sm-11', 'col-md-4', 'col-lg-3')
 
         div.innerHTML=
-        `<div class='m-2 cardDegin border bg-white'>
+        `<div class='m-2 cardDegin border bg-white' style="height: 420px !important;">
             <img src="${course['image']?
                 `${course.image}`
                 :
@@ -55,7 +52,7 @@ const viewFavoriteCourse=()=>{
             const div = document.createElement('div')
             div.classList.add('col-12','col-lg-3')
             div.style="cursor:pointer"
-            div.addEventListener(onclick,()=>{
+            div.addEventListener("click",()=>{
                 console.log('hello',element.id)
                 window.location.href=`detailsView.html?id=${element.id}`
             })
@@ -115,14 +112,12 @@ const handleBlogView=(courses)=>{
 
 const handleShowReview= ()=>{
     const comment_block = document.getElementById('comment_block')
-    document.getElementById('review_loading_spin').classList.replace('d-none','d-flex');
 
     fetch(url+`course/review/all/`)
     .then(r=>r.json())
     .then(d=>{
         if(d.data.length>0){
             // console.log(d.data)
-            document.getElementById('review_loading_spin').classList.replace('d-flex','d-none');
             showReviews(d.data)
         }
     })
@@ -133,17 +128,17 @@ const handleShowReview= ()=>{
 const showReviews = (reviews)=>{
     const review_container = document.getElementById('review_container')
     if(reviews.length >0){
-        const blank_div = document.createElement('div')
-        blank_div.innerHTML=`
-            <div style="height:220px;width:180px" class="d-md-none">
+        // const blank_div = document.createElement('div')
+        // blank_div.innerHTML=`
+        //     <div style="height:220px;width:180px" class="d-md-none">
                     
-            </div>
-        `
-        review_container.append(blank_div)
+        //     </div>
+        // `
+        // review_container.append(blank_div)
         reviews.forEach(element => {
             const div = document.createElement('div')
             // div.classList.add('col-lg-1','col-md-2','col-sm-3','mb-2')
-            div.classList.add("p-4","bg-light","shadow","rounded","hover_effect")
+            div.classList.add("p-4","bg-light","shadow","rounded","hover_effect",'slide_track')
             div.innerHTML=`
             
             
@@ -158,6 +153,8 @@ const showReviews = (reviews)=>{
                 </div>
             `
             review_container.append(div)
+            document.getElementById('course_loading_spin').classList.replace('d-flex','d-none')
+
         });
     }
 }
@@ -184,21 +181,23 @@ const showCategory=()=>{
     .then(d=>{
         console.log(d)
         const category_container = document.getElementById('show_all_department')
+        const childDiv = document.createElement('div')
+        childDiv.classList.add('slide_track')
         let i=0;
         d.forEach(element => {
             const div = document.createElement('div')
-            div.classList.add('rounded','p-3','text-center','shadow','mb-3','d-block')
+            div.classList.add('rounded','p-3','text-center','shadow','m-3','d-block')
             div.style=`height:120px;width:150px;background-color:${bg_color[i]};border:1px solid ${border_color[i]}`
             div.innerHTML=`
                 <p class="h1">${department_list[i++]}</p>
                 <p class="h5 fw-bold font-white">${element.category}</p>
             `
-            category_container.append(div)
+            childDiv.append(div)
         });
+        category_container.append(childDiv)
     })
     .catch(err=>console.log(err))
 }
-
 
 loadCourses()
 showCategory()

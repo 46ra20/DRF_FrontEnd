@@ -56,7 +56,7 @@ const viewCourse = (data) => {
                   })" ${data["is_Enroled"] ? "disabled=True" : ""}>${
                     data["is_Enroled"] ? "Enroled" : "Enrol"
                   }</button>`
-                : `<p class="btn btn-warning"><a href="login.html">Login</a> or <a href="singup.html">SingUp</a></p>`
+                : `<p class="btn btn-warning"><a class="text-decoration-none text-white fw-semibold" href="login.html">Login</a></p>`
             }
 
           <p class="fw-bold">Description</p>
@@ -200,7 +200,7 @@ const showComments = (comments) => {
                 }  </span>(${showStar(element.rating)})</p>
                 <p class="p-0 m-0">${element.review}</p>
             </div>
-            <small class="m-2 py-1  px-3 rounded bg-info">${date.getDate()}/${date.getMonth()}/${date.getUTCFullYear()}</small>
+            <small class="m-2 py-1  px-3 rounded bg-light border">${date.getDate()}/${date.getMonth()}/${date.getUTCFullYear()}</small>
             </div>
         `;
     comment_block.append(div);
