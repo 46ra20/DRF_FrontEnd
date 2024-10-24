@@ -37,13 +37,6 @@ const navBar =()=>{
             <li class="nav-item">
               <a class="nav-link active  menu_item fw-bold" aria-current="contact_us.html" href="contact_us.html">Contact Us</a>
             </li>
-            ${
-              user?.account_type=='TEACHER'?
-              ` <li class="nav-item">
-                  <a class="nav-link active  menu_item fw-bold" aria-current="addCourse.html" href="addCourse.html">Add Course</a>
-                </li>
-              `:''
-            }
           </ul>
           <div class="d-flex  align-items-center">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -59,6 +52,7 @@ const navBar =()=>{
                       ${
                         user?.account_type=='TEACHER'?
                         `
+                        <li><a class="dropdown-item  menu_item fw-bold" aria-current="addCourse.html" href="addCourse.html">Add Course</a></li>
                         <li><a class="dropdown-item fw-bold menu_item" href="mycorse.html">My Courses</a></li>
                         `
                         :
@@ -159,8 +153,8 @@ const handleLogout = ()=>{
 
 }
 
-url='https://drf-online-school-jsrn-getm.vercel.app/'
-// url = 'http://127.0.0.1:8000/'
+// url='https://drf-online-school-jsrn-getm.vercel.app/'
+url = 'http://127.0.0.1:8000/'
 
 
 

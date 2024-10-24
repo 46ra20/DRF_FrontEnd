@@ -130,6 +130,22 @@ const handleRegistration=(e)=>{
 }
 
 
+const handlePasswordReset=(event)=>{
+    event.preventDefault()
+    const email  = document.getElementById('email_for_password_reset').value
+
+    fetch(url+`account/reset_password/${email}/`)
+    .then(r=>r.json())
+    .then(d=>{
+        const modal_body = document.getElementById('modal_body')
+        modal_body.innerHTML=''
+        modal_body.innerHTML=`
+            <p>${d.message}</p>
+        `
+        event.target.reset()
+    })
+}
+
 const getAuthDetails= (id)=>{
     fetch(url+`account/user_details/${id}/`)
     .then(r=>r.json())

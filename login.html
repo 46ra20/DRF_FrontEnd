@@ -62,8 +62,36 @@
         </div>
         </div>
         </button>
-        <p class="text-end mt-2" style="text-decoration: underline;"><a href="passReset.html" class="text-dark">Forgot password?</a><small></small></p>
+        <p class="text-end mt-2" style="text-decoration: underline;"><button class="btn text-decoration-underline text-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Forgot password?</button><small></small></p>
       </form>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal_body">
+              <form action="" method="post" onsubmit="handlePasswordReset(event)">
+                <div class="mb-3">
+                  <label for="" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email_for_password_reset"
+                    aria-describedby="helpId"
+                    placeholder="example@gmail.com"
+                    required
+                  />
+                  <input type="submit" class="btn btn-warning my-2 text-white fw-semibold" value="Send Reset Link">
+                </div>
+                
+              </form>
+            </div>     
+          </div>
+        </div>
+      </div>      
     </div>
 
     <footer class="mt-5 p-5" id="footer_continer">
