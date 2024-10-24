@@ -32,7 +32,7 @@ const navBar =()=>{
               <a class="nav-link active  menu_item fw-bold" aria-current="allcourses.html" href="allcourses.html">All Courses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active  menu_item fw-bold" aria-current="allcourses.html" href="allcourses.html">Blogs</a>
+              <a class="nav-link active  menu_item fw-bold" aria-current="blog.html" href="blog.html">Blogs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active  menu_item fw-bold" aria-current="contact_us.html" href="contact_us.html">Contact Us</a>
@@ -153,8 +153,8 @@ const handleLogout = ()=>{
 
 }
 
-// url='https://drf-online-school-jsrn-getm.vercel.app/'
-url = 'http://127.0.0.1:8000/'
+const url='https://drf-online-school-jsrn-getm.vercel.app/'
+// url = 'http://127.0.0.1:8000/'
 
 
 

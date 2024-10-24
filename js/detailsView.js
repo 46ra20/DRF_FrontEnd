@@ -9,8 +9,6 @@ const detailsView = () => {
     .then((r) => r.json())
     .then((data) => {
       viewCourse(data);
-      document.getElementById('details_spin').classList.replace('d-flex','d-none');
-
       // console.log(data);
       document.title = `${
         data["data"]?.title ? data["data"].title : "Details View"
@@ -53,8 +51,8 @@ const viewCourse = (data) => {
               user_id && user.account_type == "STUDENT"
                 ? `<button class="btn btn-warning w-50 my-3" onclick="handleEnrol(${
                     course?.id
-                  })" ${data["is_Enroled"] ? "disabled=True" : ""}>${
-                    data["is_Enroled"] ? "Enroled" : "Enrol"
+                  })">${
+                    data["is_Enroled"] ? `<a class="text-decoration-none text-white fw-semibold" target="_blank" href="${course.course_link}">Continue Learning</a>` : "Enrol"
                   }</button>`
                 : `<p class="btn btn-warning"><a class="text-decoration-none text-white fw-semibold" href="login.html">Login</a></p>`
             }
@@ -219,7 +217,7 @@ const showStar = (star) => {
   return s;
 };
 
-const handleSemilarCourses = (course_id,id) =>{
+const handleSemilarCourses = async(course_id,id) =>{
   // fetch(`url+course/get_by_dep/${id}/`)
   fetch(url+`course/public_all/all/`)
     .then(r=>r.json())
@@ -264,6 +262,7 @@ const handleSemilarCourses = (course_id,id) =>{
         });
     })
     .catch(err=>console.log(err))
+    await document.getElementById('details_spin').classList.replace('d-flex','d-none');
 }
 
 const handleDetails=(id)=>{
