@@ -19,9 +19,14 @@ const navBar =()=>{
     navContainer.innerHTML=`
     <nav class="navbar navbar-expand-lg" style="background-color: #FFFFFF;">
       <div class="container-fluid col-11 mx-auto text-white" style="color: white;">
-        <a class="navbar-brand fw-bolder " href="index.html?reload=0">JSRN</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <a class="d-none d-lg-inline navbar-brand fw-bolder" href="index.html?reload=0">JSRN</a>
+        <button class="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span class="navbar-toggler-icon"></span></button>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          
+          <img src="${user?.image?`${user.image}`:"./image/JSRN.png"}" class="rounded-circle dropdown-toggle" style="height: 40px;
+    width: 40px;
+    border: 1px solid orange;">
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -51,9 +56,7 @@ const navBar =()=>{
                       <li><a class="dropdown-item fw-bold menu_item" href="profile.html">Profile</a></li>
                       ${
                         user?.account_type=='TEACHER'?
-                        `
-                        <li><a class="dropdown-item  menu_item fw-bold" aria-current="addCourse.html" href="addCourse.html">Add Course</a></li>
-                        <li><a class="dropdown-item fw-bold menu_item" href="mycorse.html">My Courses</a></li>
+                        `<li><a class="dropdown-item fw-bold menu_item" href="dashboard.html">Dashboard</a></li>
                         `
                         :
                         `
@@ -153,8 +156,11 @@ const handleLogout = ()=>{
 
 }
 
+
+//fixed variable for all pages
 const url='https://drf-online-school-jsrn-getm.vercel.app/'
 // url = 'http://127.0.0.1:8000/'
+const dashboard_container=document.getElementById('dashboard_container')
 
 
 
@@ -175,6 +181,20 @@ const handlePasswordShow = (event,id) =>{
     eye.src='image/eye-slash-fill.svg';
   }
 }
+
+
+const showActiveMenu=(event)=>{
+    const list = event.target.parentNode.querySelectorAll('.dashboard_li')
+    list.forEach(element => {
+        if(element==event.target){
+          event.target.classList.add('active_menu')
+        }
+        else{
+            element.classList.remove('active_menu')
+        }
+    });
+}
+
 
 
 footerLoader()

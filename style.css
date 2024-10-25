@@ -124,7 +124,7 @@ body{
     content: "";
 }
 
-
+/* comment show */
 .comment_preview{
     height:220px;
     width:180px;
@@ -225,4 +225,25 @@ body{
     100% {
         transform: translateX(calc(-180px * 5)); /* Scroll left by the total width */
     }
+}
+
+/* dashboard */
+
+.dashboard_li{
+    margin: 5px;
+    padding: 5px 10px;
+    transition-duration: 300ms;
+
+    &:hover{
+        font-weight: bold;
+        cursor: pointer;
+        border-left: 3px solid white;
+        transition-duration: 300ms;
+    }
+}
+
+.active_menu{
+    font-weight: bold;
+    cursor: pointer;
+    border-left: 3px solid white;
 }
