@@ -19,7 +19,14 @@ const navBar =()=>{
     navContainer.innerHTML=`
     <nav class="navbar navbar-expand-lg" style="background-color: #FFFFFF;">
       <div class="container-fluid col-11 mx-auto text-white" style="color: white;">
-        <a class="navbar-brand fw-bolder" href="index.html?reload=0">JSRN</a>
+      ${
+        user?.account_type=='TEACHER'?`
+        <button class="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span class="navbar-toggler-icon"></span></button>
+        `:`
+        <a class="navbar-brand fw-bolder" href="index.html?reload=0">JSRN</a>`
+      }
+        <a class="d-none d-lg-inline navbar-brand fw-bolder" href="index.html?reload=0">JSRN</a>
+
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           
           <img src="${user?.image?`${user.image}`:"./image/JSRN.png"}" class="rounded-circle dropdown-toggle" style="height: 40px;
@@ -82,7 +89,23 @@ const navBar =()=>{
         </div>
       </div>
     </nav>
-    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header">
+        <h5>Dashboard Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" style="background-color:#343a40;">
+        <ul class="navbar-nav text-white m-3">
+          <li  class="nav-item dashboard_li" onclick="loadAddCoursePage(event)"><i class="fa-solid fa-plus"></i> Add Course</li>
+          <li class="nav-item dashboard_li" onclick="loadMyCourses(event)"><i class="fa-brands fa-discourse"></i> My Courses</li>
+          <li class="nav-item dashboard_li"><i class="fa-solid fa-graduation-cap"></i> My Students</li>
+          <li class="nav-item dashboard_li"><i class="fa-solid fa-money-bill"></i> Enrolled Courses</li>
+          <li class="nav-item dashboard_li"><i class="fa-solid fa-heart"></i> Most Favorite Courses</li>
+          <li class="nav-item dashboard_li"><i class="fa-solid fa-circle-exclamation"></i> Total Earning</li>
+          <li class="nav-item dashboard_li"><i class="fa-solid fa-circle-xmark"></i> Unenrolled Courses</li>
+        </ul>
+      </div>
+    </div>
     `
 }
 

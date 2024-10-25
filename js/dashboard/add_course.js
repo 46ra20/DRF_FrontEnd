@@ -217,3 +217,6 @@ const get_value=(id)=>{
     return input.value
 }
 
+
+
+loadAddCoursePage()
