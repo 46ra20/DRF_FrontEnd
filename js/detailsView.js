@@ -49,10 +49,8 @@ const viewCourse = (data) => {
             <p color="m-0" style="font-size:20px">Lecturer <span class="fw-bold">${course.first_name} ${course.last_name}<span></p>
             ${
               user_id && user.account_type == "STUDENT"
-                ? `<button class="btn btn-warning w-50 my-3 " onclick="handleEnrol(${
-                    course?.id
-                  })">${
-                    data["is_Enroled"] ? `<a class="text-decoration-none text-white fw-semibold" target="_blank" href="${course.course_link}">Continue Learning</a>` : "Enrol"
+                ? `<button class="btn btn-warning w-50 my-3">${
+                    data["is_Enroled"] ? `<a class="text-decoration-none text-white fw-semibold" target="_blank" href="${course.course_link}">Continue Learning</a>` : `<a class="text-decoration-none text-white fw-semibold" href="${url}course/payment_method/${user_id}/${course?.id}/">Enrol</a>`
                   }</button>`
                 : `<p class="btn btn-warning ${user.account_type=='TEACHER'?'d-none':'d-block'}"><a class="text-decoration-none text-white fw-semibold" href="login.html">Login</a></p>`
             }
@@ -61,7 +59,7 @@ const viewCourse = (data) => {
           <p class="ms-3 p-2 shadow-sm bg-light border rounded">${
             course?.description
           }</p>
-          <p class="fw-bold">Assesment Methods</p>
+          <p class="fw-bold">Assessment Methods</p>
           <p class="ms-3 p-2 shadow-sm bg-light border rounded">${
             course?.assessment_methods
           }</p>
@@ -91,9 +89,13 @@ const handleEnrol = (id) => {
 
   fetch(url+'course/payment_method/',{
     method: 'GET',
-    mode: 'no-cors'
+    headers:{
+      'Access-Control-Allow-Origin':'*'
+    }
   })
-  .then(res=>res.json())
+  .then(res=>{
+    res.json()
+  })
   .then(data=>console.log(data))
   .catch(error=>console.log(error))
 
