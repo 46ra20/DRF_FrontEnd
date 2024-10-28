@@ -156,8 +156,8 @@ const handleLogout = ()=>{
 
 
 //fixed variable for all pages
-const url='https://drf-online-school-jsrn-getm.vercel.app/'
-// url = 'http://127.0.0.1:8000/'
+// const url='https://drf-online-school-jsrn-getm.vercel.app/'
+const url = 'http://127.0.0.1:8000/'
 const dashboard_container=document.getElementById('dashboard_container')
 
 

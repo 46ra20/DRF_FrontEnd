@@ -49,12 +49,12 @@ const viewCourse = (data) => {
             <p color="m-0" style="font-size:20px">Lecturer <span class="fw-bold">${course.first_name} ${course.last_name}<span></p>
             ${
               user_id && user.account_type == "STUDENT"
-                ? `<button class="btn btn-warning w-50 my-3" onclick="handleEnrol(${
+                ? `<button class="btn btn-warning w-50 my-3 " onclick="handleEnrol(${
                     course?.id
                   })">${
                     data["is_Enroled"] ? `<a class="text-decoration-none text-white fw-semibold" target="_blank" href="${course.course_link}">Continue Learning</a>` : "Enrol"
                   }</button>`
-                : `<p class="btn btn-warning"><a class="text-decoration-none text-white fw-semibold" href="login.html">Login</a></p>`
+                : `<p class="btn btn-warning ${user.account_type=='TEACHER'?'d-none':'d-block'}"><a class="text-decoration-none text-white fw-semibold" href="login.html">Login</a></p>`
             }
 
           <p class="fw-bold">Description</p>
@@ -89,17 +89,25 @@ const handleEnrol = (id) => {
     enrol_by: user,
   };
 
-  fetch(url+`course/enrol_create/`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(context),
+  fetch(url+'course/payment_method/',{
+    method: 'GET',
+    mode: 'no-cors'
   })
-    .then((r) => r.json())
-    .then((d) => {
-      console.log(d);
-      detailsView();
-    })
-    .catch((err) => console.log(err));
+  .then(res=>res.json())
+  .then(data=>console.log(data))
+  .catch(error=>console.log(error))
+
+  // fetch(url+`course/enrol_create/`, {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify(context),
+  // })
+  //   .then((r) => r.json())
+  //   .then((d) => {
+  //     console.log(d);
+  //     detailsView();
+  //   })
+  //   .catch((err) => console.log(err));
 };
 
 const handleReview = (is_Enroled, id) => {
