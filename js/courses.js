@@ -96,7 +96,7 @@ const handleBlogView=(courses)=>{
                 <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">${course?.title.slice(0,40)}</h5>
-                    <p class="card-text">${course?.description.slice(0,100)}.....<span class="text-info">Read More</span></p>
+                    <p class="card-text">${course?.description.slice(0,100)}.....<a class="text-info" href="blog.html">Read More</a></p>
                     <p class="card-text">Department: ${course?.department}</p>
                 </div>
                 </div>

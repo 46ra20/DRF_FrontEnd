@@ -42,7 +42,7 @@ const viewCourse = (data) => {
             <p class="m-0 lh-base">Course Duration: ${
               course?.course_duration
             } ${course?.course_duration > 1 ? "Hours" : "Hour"}</p>
-            <p class="m-0 lh-base">Upload Date: ${date.getDate()}-${date.getMonth()}-${date.getFullYear()}(${date.getHours()}:${date.getMinutes()})</p>
+            <p class="m-0 lh-base">Upload Date: ${date.toUTCString()}</p>
             <p class="m-0 lh-base">Department: ${
               course?.department
             }</p>
@@ -208,7 +208,7 @@ const showComments = (comments) => {
                 }  </span>(${showStar(element.rating)})</p>
                 <p class="p-0 m-0">${element.review}</p>
             </div>
-            <small class="m-2 py-1  px-3 rounded bg-light border">${date.getDate()}/${date.getMonth()}/${date.getUTCFullYear()}</small>
+            <small class="m-2 py-1  px-3 rounded bg-light border">${date.toUTCString().split(',')[1].slice(0,12)}</small>
             </div>
         `;
     comment_block.append(div);

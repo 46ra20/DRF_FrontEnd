@@ -1,4 +1,5 @@
 const loadMyEnroledCourse = ()=>{
+    document.getElementById('mylearing_spin').classList.replace('d-none','d-flex')
     const user = localStorage.getItem('user_id')
 
     fetch(url+`course/enrol/${user}/`)
@@ -19,7 +20,7 @@ const displayMyCourses = (courses) => {
                 <div class="fw-bold col-1">${i+1}.</div>
                 <div class="col-5"><a class="fw-bold" style="text-decoration:none" href="detailsView.html?id=${courses.data[i]?.enrol_course}">${courses?.course_details[i]?.title}</a></div>
                 <div class="d-none d-md-block col-2">${courses?.course_details[i]?.price} $</div>
-                <div class="d-none d-md-block col-2">${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</div>
+                <div class="d-none d-md-block col-2">${date.toUTCString().slice(0,16)}</div>
                 
                 <div class="">
                     <button class="btn btn-danger d-block w-100" onclick="hangleDelete(${courses?.data[i]?.id})">Unenrol</button>
@@ -27,6 +28,8 @@ const displayMyCourses = (courses) => {
         `
         table_container.append(div)
     }
+    document.getElementById('mylearing_spin').classList.replace('d-flex','d-none')
+
 }
 
 const hangleDelete =(id)=>{
