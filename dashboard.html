@@ -22,27 +22,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body" style="background-color:#343a40;">
-        <ul class="navbar-nav text-white m-3">
-          <li  class="nav-item dashboard_li" onclick="loadAddCoursePage(event)"><i class="fa-solid fa-plus"></i> Add Course</li>
-          <li class="nav-item dashboard_li" onclick="loadMyCourses(event)"><i class="fa-brands fa-discourse"></i> My Courses</li>
-          <li class="nav-item dashboard_li" onclick="loadMyStudent(event)"><i class="fa-solid fa-graduation-cap"></i> My Students</li>
-          <li class="nav-item dashboard_li" onclick="loadEnrolledCourses(event)"><i class="fa-solid fa-money-bill"></i> Enrolled Courses</li>
-          <li class="nav-item dashboard_li" onclick="loadMostFavoriteCourses(event)"><i class="fa-solid fa-heart"></i> Most Favorite Courses</li>
-          <li class="nav-item dashboard_li" onclick="loadTotalEaring(event) "><i class="fa-solid fa-circle-exclamation"></i> Total Earning</li>
-          <li class="nav-item dashboard_li" onclick="loadUnenrolledCourse(event)"><i class="fa-solid fa-circle-xmark"></i> Unenrolled Courses</li>
+        <ul class="navbar-nav text-white m-3" id="menu_item">
+          
         </ul>
       </div>
     </div>
     <div class="d-flex">
         <div class="d-none d-lg-block col-lg-3" style="min-height: 100vh; background-color:#343a40;margin-bottom: -48px;">
-            <ul class="navbar-nav text-white m-3">
-                <li  class="nav-item dashboard_li active_menu" onclick="loadAddCoursePage(event)"><i class="fa-solid fa-plus"></i> Add Course</li>
-                <li class="nav-item dashboard_li" onclick="loadMyCourses(event)"><i class="fa-brands fa-discourse"></i> My Courses</li>
-                <li class="nav-item dashboard_li"><i class="fa-solid fa-graduation-cap"></i> My Students</li>
-                <li class="nav-item dashboard_li"><i class="fa-solid fa-money-bill"></i> Enrolled Courses</li>
-                <li class="nav-item dashboard_li"><i class="fa-solid fa-heart"></i> Most Favorite Courses</li>
-                <li class="nav-item dashboard_li"><i class="fa-solid fa-circle-exclamation"></i> Total Earning</li>
-                <li class="nav-item dashboard_li"><i class="fa-solid fa-circle-xmark"></i> Unenrolled Courses</li>
+            <ul class="navbar-nav text-white m-3" id="menu_item_mobile">
+                
             </ul>
         </div>
         <div class="col-lg-9 col-12 border" id="dashboard_container"></div>
@@ -69,6 +57,7 @@
      <script src="js/dashboard/myStudents.js"></script>
      <script src="js/dashboard/unenrolled_courses.js"></script>
      <script src="js/dashboard/most_favorite_course.js"></script>
+     <script src="js/dashboard/dashbord_menuBar.js"></script>
 
   </body>
 </html>

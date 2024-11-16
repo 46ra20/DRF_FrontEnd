@@ -62,17 +62,33 @@
         </div>
         </div>
         </button>
-        <p class="text-end mt-2" style="text-decoration: underline;"><button class="btn text-decoration-underline text-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Forgot password?</button><small></small></p>
+        <p class="text-end mt-2"><button class="btn btn-outline-warning fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login Credentials</button><small></small></p>
       </form>
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Login Credentials</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="modal_body">
-              <form action="" method="post" onsubmit="handlePasswordReset(event)">
+              <div class="border-bottom p-2">
+                <p>Account Type: Teacher</p>
+                <p>Username: rakib</p>
+                <p>Account Type: asdf!1234</p>
+              </div>
+              <div class="border-bottom p-2">
+                <p>Account Type: Student</p>
+                <p>Username: siyam</p>
+                <p>Account Type: asdf!1234</p>
+              </div>
+              <div class="p-2">
+                <p>Account Type: Database</p>
+                <p>Database link: <a href="https://drf-online-school-jsrn-getm.vercel.app/">link</a></p>
+                <p>Username: mrb</p>
+                <p>Account Type: 1234</p>
+              </div>
+              <!-- <form action="" method="post" onsubmit="handlePasswordReset(event)">
                 <div class="mb-3">
                   <label for="" class="form-label">Email</label>
                   <input
@@ -87,7 +103,7 @@
                   <input type="submit" class="btn btn-warning my-2 text-white fw-semibold" value="Send Reset Link">
                 </div>
                 
-              </form>
+              </form> -->
             </div>     
           </div>
         </div>

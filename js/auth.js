@@ -150,7 +150,7 @@ const getAuthDetails= (id)=>{
     fetch(url+`account/user_details/${id}/`)
     .then(r=>r.json())
     .then(d=>{
-      // console.log(d)
+    //   console.log(d)
       localStorage.setItem('user',JSON.stringify(d))
       getUserDetails(id)
     })
